@@ -25,8 +25,8 @@ export default class Call extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps)
     if (prevProps.channel !== this.props.channel && this.props.channel !== "") {
-      this.joinChannel();
     }
   }
 
@@ -91,8 +91,8 @@ export default class Call extends Component {
     let me = this;
     client.join(
       null,
-      "hisman",
-      USER_ID,
+      null,
+      null,
       function(uid) {
         console.log("User " + uid + " join channel successfully");
         client.publish(me.localStream, function(err) {

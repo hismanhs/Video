@@ -19,16 +19,15 @@ export default class ChannelForm extends Component {
   };
   render() {
     return (
-      <div>
+      <div style={{margin:'16px'}}>
         <form onSubmit={this.onSubmit}>
-          <label>Channel Name</label>
           <input
             placeholder="Channel Name"
             name="channel"
             value={this.state.channel}
             onChange={this.onChange}
           />
-          <input type="submit" value="Join Channel" />
+          <input type="submit" value="Join Channel" style={{margin:'6px'}}/>
         </form>
       </div>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ChannelLogin from "./components/ChannelLogin";
+import ChannelForm from "./components/ChannelForm";
 import Call from "./components/Call";
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ChannelLogin selectChannel={this.selectChannel} />
+        <ChannelForm selectChannel={this.selectChannel} />
         <Call channel={this.state.channel} />
       </div>
     );
