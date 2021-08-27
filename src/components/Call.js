@@ -90,8 +90,8 @@ export default class Call extends Component {
   joinChannel = () => {
     let me = this;
     client.join(
-      null,
-      null,
+       "006783432fc9ff04b08ad36998136e48c56IAAr1m9YCkbYIhvrTE0pooRkCNU+0+VXcPREZ3PdqmVoXxB4Li4AAAAAEADn8NlKo58qYQEAAQCinyph",
+    "hisman",
       null,
       function(uid) {
         console.log("User " + uid + " join channel successfully");
