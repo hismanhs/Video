@@ -3,7 +3,7 @@ import AgoraRTC from "agora-rtc-sdk";
 let client = AgoraRTC.createClient({ mode: "live", codec: "h264" });
 
 const USER_ID = Math.floor(Math.random() * 1000000001);
-const APP_ID = "aed1787f4f1d41a0baf205dc0193f586";
+const APP_ID = "783432fc9ff04b08ad36998136e48c56";
 
 export default class Call extends Component {
   localStream = AgoraRTC.createStream({
@@ -20,6 +20,8 @@ export default class Call extends Component {
   componentDidMount() {
     this.initLocalStream();
     this.initClient();
+    this.joinChannel();
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -60,6 +62,7 @@ export default class Call extends Component {
     client.on("stream-subscribed", me.onRemoteClientAdded);
 
     client.on("stream-removed", me.onStreamRemoved);
+
     client.on("peer-leave", me.onPeerLeave);
   };
 
@@ -88,8 +91,8 @@ export default class Call extends Component {
     let me = this;
     client.join(
       null,
-      me.props.channel,
-      null,
+      "hisman",
+      USER_ID,
       function(uid) {
         console.log("User " + uid + " join channel successfully");
         client.publish(me.localStream, function(err) {
